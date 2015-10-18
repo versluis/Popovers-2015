@@ -16,12 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="0.55495689655172409" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Popover Demo" id="YZQ-rN-hbF">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="rta-A0-KKt">
                             <connections>
-                                <action selector="showViewcontroller:" destination="BYZ-38-t0r" id="etd-VF-7e5"/>
+                                <action selector="barButtonLeft:" destination="BYZ-38-t0r" id="nv1-GD-oKp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="8DQ-34-TYX">
+                            <connections>
+                                <action selector="barButtonRight:" destination="BYZ-38-t0r" id="Nrf-nY-86z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

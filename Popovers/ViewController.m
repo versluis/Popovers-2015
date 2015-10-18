@@ -10,7 +10,6 @@
 
 @interface ViewController () <UIPopoverPresentationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *leftButton;
-
 @end
 
 @implementation ViewController
@@ -24,7 +23,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)showViewcontroller:(id)sender {
+- (IBAction)barButtonLeft:(id)sender {
 
     // grab the view controller we want to show
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -41,6 +40,28 @@
     popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
     popController.barButtonItem = self.leftButton;
     popController.delegate = self;
+}
+
+- (IBAction)barButtonRight:(id)sender {
+    
+    // grab the view controller we want to show
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"Pop"];
+    
+    // present the controller
+    // on iPad, this will be a Popover
+    // on iPhone, this will be an action sheet
+    controller.modalPresentationStyle = UIModalPresentationPopover;
+    [self presentViewController:controller animated:YES completion:nil];
+    
+    // configure the Popover presentation controller
+    UIPopoverPresentationController *popController = [controller popoverPresentationController];
+    popController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    popController.delegate = self;
+    
+    // in case we don't have a bar button as reference
+    popController.sourceView = self.view;
+    popController.sourceRect = CGRectMake(30, 50, 10, 10);
 }
 
 # pragma mark - Popover Presentation Controller Delegate
