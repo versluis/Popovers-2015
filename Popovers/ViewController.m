@@ -68,7 +68,21 @@
 
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     
+    // called when a Popover is dismissed
     NSLog(@"Popover was dismissed with external tap. Have a nice day!");
 }
+
+- (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    
+    // return YES if the Popover should be dismissed
+    // return NO if the Popover should not be dismissed
+    return YES;
+}
+
+- (void)popoverPresentationController:(UIPopoverPresentationController *)popoverPresentationController willRepositionPopoverToRect:(inout CGRect *)rect inView:(inout UIView *__autoreleasing  _Nonnull *)view {
+    
+    // called when the Popover changes positon
+}
+
 
 @end
